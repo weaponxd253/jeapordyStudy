@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Jeopardy Game</h1>
+        <nav>
+            <a href="create-category.html" class="button-link">Create Custom Categories</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="score-board">
+            <h2>Score: <span id="score">0</span></h2>
+            <button id="reset-button">Reset Game</button>
+        </div>
+        <div class="topic-selection">
+            <label for="topic">Select Topic:</label>
+            <select id="topic">
+                <option value="programming">Programming</option>
+                <option value="animals">Animals</option>
+                <option value="biology">Biology</option>
+                <option value="user_design">User Design</option>
+                <option value="basic_it">Basic IT</option>
+                <option value="sql_developer">SQL Developer</option>
+            </select>
+            <button id="load-button">Load</button>
+        </div>
+        <div class="jeopardy-board"></div>
+    </main>
+
+    <!-- Modal for displaying questions and answers -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="question-text"></div>
+            <div id="timer">Time left: <span id="time-left">30</span>s</div>
+            <input type="text" id="answer" placeholder="Your answer">
+            <button id="submit-answer">Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

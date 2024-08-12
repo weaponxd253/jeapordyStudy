@@ -1,0 +1,338 @@
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  margin: 0;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.button-link, 
+#reset-button, 
+#load-button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #343a40;
+    color: #f0f0f0;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* For the link */
+    display: inline-block;  /* Ensures links behave like buttons */
+    text-align: center;     /* Centers the text inside the link */
+    margin-right: 10px;
+}
+
+.button-link:hover,
+#reset-button:hover,
+#load-button:hover {
+    background-color: #495057;
+}
+
+/* Topic Selection */
+.topic-selection {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.topic-selection label {
+  font-size: 1.2em;
+  margin-right: 10px;
+  color: #f0f0f0;
+}
+
+.topic-selection select,
+#load-button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #343a40;
+  color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+#load-button:hover {
+  background-color: #495057;
+}
+
+/* Score Board */
+.score-board {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#reset-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #343a40;
+  color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#reset-button:hover {
+  background-color: #495057;
+}
+
+/* Jeopardy Board */
+.jeopardy-board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.category {
+  background-color: #495057;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  grid-column: span 1;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.questions {
+  display: contents;
+  /* Ensures the questions span across the grid columns */
+}
+
+.question {
+  background-color: #343a40;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question:hover {
+  background-color: #495057;
+  transform: translateY(-5px);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8);
+  max-width: 600px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.modal.show .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #f00;
+}
+
+#timer {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+#answer {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+#submit-answer {
+  padding: 10px 20px;
+  background-color: #343a40;
+  color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#submit-answer:hover {
+  background-color: #495057;
+}
+
+.correct-answer {
+  color: green;
+  animation: correct 1s ease-in-out;
+}
+
+.incorrect-answer {
+  color: red;
+  animation: incorrect 1s ease-in-out;
+}
+
+@keyframes correct {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes incorrect {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Styles for the Create Custom Categories Page */
+.category-form-container {
+    background-color: #343a40;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    color: #f0f0f0;
+    width: 80%;
+    max-width: 600px;
+}
+
+.category-form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+#category-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+#category-form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #495057;
+    border-radius: 5px;
+    background-color: #495057;
+    color: #f0f0f0;
+    font-size: 1em;
+}
+
+#category-form .button-link {
+    width: calc(50% - 10px);
+    text-align: center;
+    padding: 12px 20px;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 1em;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+#category-form .button-link:hover {
+    background-color: #218838;
+}
+
+#add-question {
+    background-color: #17a2b8;
+    margin-right: 10px;
+}
+
+#add-question:hover {
+    background-color: #138496;
+}
+
+.question-block {
+    margin-bottom: 25px;
+    border-top: 1px solid #495057;
+    padding-top: 20px;
+}
+
+.question-block:first-child {
+    border-top: none;
+    padding-top: 0;
+}
