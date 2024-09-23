@@ -372,10 +372,19 @@ nav a {
   }
 
   /* Reduce padding for buttons */
-  #load-button, #random-category-button, #reset-button {
+  #load-button,#reset-button {
       padding: 6px 10px;
       font-size: 0.8em;
   }
+
+  @media (max-width: 768px) {
+    #random-category-button {
+        padding: 8px 12px !important;
+        font-size: 0.9em !important;
+        width: 100%; /* Full width on mobile */
+    }
+}
+
 
   /* Modal width adjustment */
   .modal-content {
