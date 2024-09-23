@@ -64,6 +64,7 @@ nav a {
 }
 
 .topic-selection select,
+#random-category-button,
 #load-button {
   padding: 10px 15px;
   font-size: 1em;
@@ -75,6 +76,7 @@ nav a {
   transition: background-color 0.3s ease;
 }
 
+#random-category-button:hover,
 #load-button:hover {
   background-color: #495057;
 }
@@ -335,4 +337,48 @@ nav a {
 .question-block:first-child {
     border-top: none;
     padding-top: 0;
+}
+
+
+@media (max-width: 768px) {
+  /* Adjust jeopardy board for mobile */
+  .jeopardy-board {
+      grid-template-columns: repeat(2, 1fr); /* Reduce columns to 2 */
+      grid-gap: 5px; /* Reduce gap for smaller screens */
+  }
+
+  /* Adjust font sizes */
+  body, .category, .question {
+      font-size: 1em;
+  }
+
+  /* Make buttons smaller on mobile */
+  #load-button, #random-category-button, #reset-button {
+      padding: 8px 12px;
+      font-size: 0.9em;
+  }
+
+  /* Adjust the modal */
+  .modal-content {
+      width: 90%;
+      padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even more compact layout for smaller phones */
+  .jeopardy-board {
+      grid-template-columns: repeat(1, 1fr); /* One column on very small screens */
+  }
+
+  /* Reduce padding for buttons */
+  #load-button, #random-category-button, #reset-button {
+      padding: 6px 10px;
+      font-size: 0.8em;
+  }
+
+  /* Modal width adjustment */
+  .modal-content {
+      width: 100%;
+  }
 }

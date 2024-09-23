@@ -29,6 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'sql_developer':
                 jsonURL = 'https://weaponxd253.github.io/JeopardyApi/sql_developer.json';
                 break;
+            case 'sports':
+                jsonURL = 'https://weaponxd253.github.io/JeopardyApi/sports.json';
+                    break;
+            case 'lpn':
+                jsonURL = 'https://weaponxd253.github.io/JeopardyApi/lpn.json';
+                    break;
+            case 'gaming':
+                jsonURL = 'https://weaponxd253.github.io/JeopardyApi/gamingConsoles.json';
+                    break;
+                    
             default:
                 jsonURL = 'https://weaponxd253.github.io/JeopardyApi/categories.json';
         }
@@ -49,6 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error fetching data:', error));
     });
+
+    document.getElementById('random-category-button').addEventListener('click', () => {
+        const topicSelect = document.getElementById('topic');
+        const options = topicSelect.options;
+        const randomIndex = Math.floor(Math.random() * options.length);
+        topicSelect.selectedIndex = randomIndex;
+    });
+    
 
     function createCategories(categories) {
         const jeopardyBoard = document.querySelector('.jeopardy-board');

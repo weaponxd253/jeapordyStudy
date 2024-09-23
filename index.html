@@ -9,13 +9,13 @@
 </head>
 <body>
     <header>
-        <h1>Jeopardy Study</h1>
+        <h1>Jeopardy</h1>
     </header>
 
     <main>
         <div class="score-board">
             <h2>Score: <span id="score">0</span></h2>
-            <button id="reset-button">Reset Game</button>
+            <button id="reset-button">Reset</button>
         </div>
         <div class="topic-selection">
             <label for="topic">Select Topic:</label>
@@ -26,8 +26,13 @@
                 <option value="user_design">User Design</option>
                 <option value="basic_it">Basic IT</option>
                 <option value="sql_developer">SQL Developer</option>
+                <option value="sports">Sports</option>
+                <option value="gaming">Game consoles</option>
+                <option value="lpn">Licensed Practical Nurse</option>
             </select>
-            <button id="load-button">Load</button>
+            <button id="load-button">Play</button>
+            <button id="random-category-button">Random Category</button> 
+
         </div>
         <div class="jeopardy-board"></div>
     </main>
